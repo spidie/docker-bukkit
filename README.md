@@ -3,22 +3,6 @@
 # Simple Tags
 | Tag      | Notes |
 |----------|-------|
-| `1.8`    |       |
-| `1.8.3`  |       |
-| `1.8.7`  | Tag seems to have disppeared from the upstream. This project will no longer build it, but it will remain active for historical purposes. |
-| `1.8.8`  |       |
-| `1.9`    |       |
-| `1.9.2`  |       |
-| `1.9.4`  |       |
-| `1.10`   | Tag seems to have disppeared from the upstream. This project will no longer build it, but it will remain active for historical purposes. |
-| `1.10.2` |       |
-| `1.11`   |       |
-| `1.12`   |       |
-| `1.12.1` |       |
-| `1.12.2` |       |
-| `1.13`   |       |
-| `1.13.1` |       |
-| `1.13.2` |       |
 | `1.14.1` |       |
 | `latest` | Builds the default ref from [GetBukkit](https://getbukkit.org/) (1.14.1 at the time of this writing) |
 
@@ -30,7 +14,7 @@ A Docker Bukkit/Spigot server based on Alpine.
 
 To start the server and accept the EULA in one fell swoop, just pass the `EULA=true` environment variable to Docker when running the container. I recommend mounting a directory from your host onto `/data` in the container to make map and server data persistent.
 
-`docker run -it -v /data:/data -p 25565:25565  -e EULA=true --name mc_server bbriggs/bukkit` 
+`docker run -it -v /data:/data -p 25565:25565  -e EULA=true --name mc_server spidie/bukkit` 
 
 To run in the background (recommended), add the `-d` flag.
 
