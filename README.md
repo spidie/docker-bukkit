@@ -1,7 +1,5 @@
 ### Supported tags and respective `Dockerfile` links
 
-[![Build Status](https://api.travis-ci.org/bbriggs/docker-bukkit.svg?branch=master)](https://travis-ci.org/bbriggs/docker-bukkit)
-
 # Simple Tags
 | Tag      | Notes |
 |----------|-------|
@@ -21,7 +19,8 @@
 | `1.13`   |       |
 | `1.13.1` |       |
 | `1.13.2` |       |
-| `latest` | Builds the default ref from [GetBukkit](https://getbukkit.org/) (1.12.2 at the time of this writing) |
+| `1.14.1` |       |
+| `latest` | Builds the default ref from [GetBukkit](https://getbukkit.org/) (1.14.1 at the time of this writing) |
 
 # Docker Bukkit
 
@@ -41,13 +40,13 @@ To run in the background (recommended), add the `-d` flag.
 
 Yes, even though the repo's name is `bukkit`, we have included the lovely spigot server as well. To run the spigot server, supply it as an argument like so:
 
-`docker run -it -v /data:/data -p 25565:25565  -e EULA=true --name mc_server bbriggs/bukkit spigot` 
+`docker run -it -v /data:/data -p 25565:25565  -e EULA=true --name mc_server spidie/bukkit spigot` 
 
 ### Configuration
 
 You can bring your own existing data + configuration and mount it to the `/data` directory when starting the container by using the `-v` option. You may also pass configuration options as environment variables like so:
 
-`docker run -it -e DIFFICULTY=2 -e MOTD="A non-standard message" -e SPAWN_ANIMALS=false bbriggs/bukkit`
+`docker run -it -e DIFFICULTY=2 -e MOTD="A non-standard message" -e SPAWN_ANIMALS=false spidie/bukkit`
 
 This container will only attempt generate a `server.properties` file if one does not already exist. If you would like to use the configuration tool, be sure that you are not providing a configuration file or that you also set `FORCE_CONFIG=true` in the environment variables.
 
@@ -113,4 +112,4 @@ A full list of `server.properties` settings and their corresponding environment 
 To run a specific version of Bukkit or Spigot, use a docker tag. 
 
 Example:
-`docker run -it -v /data:/data -p 25565:25565  -e EULA=true --name mc_server bbriggs/bukkit:1.9.4 spigot` 
+`docker run -it -v /data:/data -p 25565:25565  -e EULA=true --name mc_server spidie/bukkit:1.14.1 spigot` 
