@@ -22,7 +22,7 @@ RUN echo $BUKKIT_VERSION
 RUN apk update
 RUN apk --no-cache add wget git bash
 RUN wget -O /minecraft/BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
-RUN java -jar BuildTools.jar --rev $BUKKIT_VERSION  2>&1 /dev/null
+RUN java -jar BuildTools.jar --rev $BUKKIT_VERSION --compile craftbukkit 2>&1 /dev/null
 
 FROM openjdk:8-alpine
 # frolvlad/alpine-python3
@@ -34,8 +34,7 @@ RUN apk add --no-cache python3 bash && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
     rm -r /root/.cache
 WORKDIR /root
-#COPY --from=builder /minecraft/craftbukkit-*.jar /root/craftbukkit.jar
-COPY --from=builder /minecraft/CraftBukkit/target/craftbukkit-*.jar /root/craftbukkit.jar
+COPY --from=builder /minecraft/craftbukkit-*.jar /root/craftbukkit.jar
 COPY --from=builder /minecraft/spigot-*.jar /root/spigot.jar
 EXPOSE 25565
 WORKDIR /data
