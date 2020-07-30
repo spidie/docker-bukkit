@@ -3,6 +3,7 @@
 # Simple Tags
 | Tag      | Notes |
 |----------|-------|
+| `1.16.1` |       |
 | `1.14.1` |       |
 | `latest` | Builds the default ref from [GetBukkit](https://getbukkit.org/) (1.14.1 at the time of this writing) |
 
